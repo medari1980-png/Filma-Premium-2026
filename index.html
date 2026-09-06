@@ -3,44 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista IPTV</title>
+    <title>Kanal Filma Live me Logo</title>
     <style>
         body {
             background-color: #121212;
-            color: #00ffcc;
-            font-family: monospace;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
             padding: 20px;
         }
-        pre {
-            white-space: pre-wrap; /* Që rreshtat e gjatë të kalojnë në rresht të ri automatikisht */
-            word-wrap: break-word;
+        h1 {
+            color: #00ffcc;
+            font-size: 24px;
+        }
+        #player-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        video {
+            width: 100%;
+            border-radius: 8px;
+            background: #000;
+            display: block;
+        }
+        /* Stili i logos fiks në cep të videos si në TV */
+        .tv-logo {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            width: 55px;
+            height: auto;
+            opacity: 0.85;
+            pointer-events: none;
+            z-index: 10;
+        }
+        #current-movie {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #ffcc00;
         }
     </style>
 </head>
 <body>
 
-    <pre>
-#EXTM3U
-#EXTINF:-1,group-title="► FILMA ME TITRA 2026",Odisea 2026
-http://newborne.pro:8080/movie/872949/cRnFPuG/124429.mp4
-#EXTINF:-1,group-title="► FILMA ME TITRA 2026",Mutiny
-http://newborne.pro:8080/movie/872949/cRnFPuG/125477.mp4
-#EXTINF:-1,group-title="► FILMA ME TITRA 2026",Spider-Man Brand Njew Day
-http://newborne.pro:8080/movie/872949/cRnFPuG/124428.mp4
-#EXTINF:-1,group-title="► FILMA ME TITRA 2026",Spades
-http://newborne.pro:8080/movie/872949/cRnFPuG/124450.mp4
-#EXTINF:-1,group-title="► FILMA ME TITRA 2026",The devil's mouth(Horror)
-http://newborne.pro:8080/movie/872949/cRnFPuG/124946.mp4
-#EXTINF:-1,"The Whisper Man (2026)"
-https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/iS5u_5nFjm1OIuzDmEIqqg/3ae/r8c1nwnj/gcpfr9/tt/master.m3u8
-#EXTINF:-1,The Runner (2026)
-https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/0NkkhynfYcHs1ONJIwvqzg/lob/skucpjep/xq91z3/tt/master.m3u8
-#EXTINF:-1,The Dog Stars (2026)
-https://eclatandephemera.site/pl/H4sIAAAAAAAAAwXB226DIBgA4FdSPKws6cViPVQnlqqg3AH_FqdgSbNM69Pv.0JP6pOHVQBfcYRPOgww8mSIozf4lr6v3qmddmnHnV90RLv7jVzAtnaXkEPS5tvGLHb1TF9tV0aV__hTw3JI5oI6hZ8K0Wc3QNENJG5XfciVJKIon3LONtqXkR7KKwxmgiN9NWk2jjabR26YzMSvtM5QO3qsgL1fACnPxRT5V0Dm0edTohgL21QjutwLhlgPXEwjx5tIzUBnkUhOynr.2NlBhEauYZ5rVAFVN8Mns8TUhqyau0r4IrvR8_kfUHj8vAkBAAA-/master.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteS1hdXRoIiwiaWF0IjoxNzg4NjkzODM2LCJuYmYiOjE3ODg2OTM4MzYsImV4cCI6MTc4ODcwODIzNiwiaXBfY2lkciI6IjE4NS4yMy4xMTAuMC8yNCJ9.b1vgPWFeymk2dipneNEXjV2oA2k2zHPyGlokLWjI_1o
-#EXTINF:-1,The Mongoose (2026)
-https://farouchefrontier.site/pl/H4sIAAAAAAAAAwXBXa.CIBgA4L8EvpZ1ti4OS_wo8YQCyR2CzaUy13SVv_48j0XW7CE67B6wb0PAIXrYLkIITHc8mAj_1OodViNRFunCifymJsm0QlAInUnar3qayzKmht8zKKDB9rvEKuaebz12Mn_XI4Eaa6NSnTPqXkwdSx1kX.V7Ks4idNsvbmO.cNlLl7qVCzpXyTh0g8UaNVjVbr2ibGvT2bOANVJSYie.sHvuL.AC.xxAK7xVmF.0mIOO9gNLi0Bs46tG8mwHFtvkY.pEflogOwG5VyOZbp4I93SyQrP8u51O_6jPyFEJAQAA/master.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteS1hdXRoIiwiaWF0IjoxNzg4NjkzOTkxLCJuYmYiOjE3ODg2OTM5OTEsImV4cCI6MTc4ODcwODM5MSwiaXBfY2lkciI6IjE4NS4yMy4xMTAuMC8yNCJ9.1kYXfvxwS2lzGm1dQ93fdOIPhcV5ZWbIaBkXWLqOqt4
+    <h1>Kanal Filma Live 24/7</h1>
 
-    </pre>
+    <div id="player-container">
+        <img id="tvLogoImg" src="" alt="Logo TV" class="tv-logo">
+        
+        <video id="videoPlayer" controls autoplay></video>
+        
+        <div id="current-movie">Duke u ngarkuar...</div>
+    </div>
+
+    <script>
+        // Këtu ke tashmë një logo shembull për filma të vendosur gati
+        const playlist = [
+            { 
+                title: "Filmi 1: Odisea 2026", 
+                src: "http://newborne.pro:8080/movie/872949/cRnFPuG/124429.mp4", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png" 
+            },
+            { 
+                title: "Filmi 2: Mutiny 2026", 
+                src: "http://newborne.pro:8080/movie/872949/cRnFPuG/125477.mp4", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png" 
+            }.  title: "Filmi 3: Spider Man", 
+                src: "http://newborne.pro:8080/movie/872949/cRnFPuG/124428.mp4", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png"
+                title: "Filmi 4: Spades", 
+                src: "http://newborne.pro:8080/movie/872949/cRnFPuG/124450.mp4", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png" 
+                title: "Filmi 5:The wisper Man", 
+                src: "https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/iS5u_5nFjm1OIuzDmEIqqg/3ae/r8c1nwnj/gcpfr9/tt/master.m3u8", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png" 
+            }.  title: "Filmi 6:The Runner", 
+                src: "https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/0NkkhynfYcHs1ONJIwvqzg/lob/skucpjep/xq91z3/tt/master.m3u8", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png"
+                title: "Filmi 7: The Dog Stars", 
+                src: "https://eclatandephemera.site/pl/H4sIAAAAAAAAAwXB226DIBgA4FdSPKws6cViPVQnlqqg3AH_FqdgSbNM69Pv.0JP6pOHVQBfcYRPOgww8mSIozf4lr6v3qmddmnHnV90RLv7jVzAtnaXkEPS5tvGLHb1TF9tV0aV__hTw3JI5oI6hZ8K0Wc3QNENJG5XfciVJKIon3LONtqXkR7KKwxmgiN9NWk2jjabR26YzMSvtM5QO3qsgL1fACnPxRT5V0Dm0edTohgL21QjutwLhlgPXEwjx5tIzUBnkUhOynr.2NlBhEauYZ5rVAFVN8Mns8TUhqyau0r4IrvR8_kfUHj8vAkBAAA-/master.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteS1hdXRoIiwiaWF0IjoxNzg4NjkzODM2LCJuYmYiOjE3ODg2OTM4MzYsImV4cCI6MTc4ODcwODIzNiwiaXBfY2lkciI6IjE4NS4yMy4xMTAuMC8yNCJ9.b1vgPWFeymk2dipneNEXjV2oA2k2zHPyGlokLWjI_1o", 
+                logo: "https://cdn-icons-png.flaticon.com/512/3163/3163496.png" 
+        ];
+
+        let currentTrack = 0;
+        const videoPlayer = document.getElementById("videoPlayer");
+        const currentMovieText = document.getElementById("current-movie");
+        const tvLogoImg = document.getElementById("tvLogoImg");
+
+        function playMovie(index) {
+            if (index < playlist.length) {
+                currentMovieText.innerText = "Po luan tani: " + playlist[index].title;
+                tvLogoImg.src = playlist[index].logo;
+                videoPlayer.src = playlist[index].src;
+                videoPlayer.load();
+                videoPlayer.play().catch(error => {
+                    console.log("Autoplay u bllokua nga browser-i:", error);
+                });
+            } else {
+                currentTrack = 0;
+                playMovie(currentTrack);
+            }
+        }
+
+        videoPlayer.onended = function() {
+            currentTrack++;
+            playMovie(currentTrack);
+        };
+
+        window.onload = function() {
+            playMovie(currentTrack);
+        };
+    </script>
 
 </body>
 </html>
