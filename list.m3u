@@ -1,11 +1,15 @@
 #EXTM3U
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/⁠Screenshot 2026-09-06 at 17.12.08.png⁠",Filma Premium AL 1
-http://newborne.pro:8080/movie/872949/cRnFPuG/124429.mp4
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/Screenshot 2026-09-06 at 17.12.59.png",Filma Premium AL 2
-http://newborne.pro:8080/movie/872949/cRnFPuG/124450.mp4
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/VENDOS_EMRIN_E_FOTOS_3_KETU.png",Filma Premium AL 3
-https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/iS5u_5nFjm1OIuzDmEIqqg/3ae/r8c1nwnj/gcpfr9/tt/master.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/VENDOS_EMRIN_E_FOTOS_4_KETU.png",Filma Premium AL 4
+#EXTINF:-1⁠,Dark Hollow (2026)Akson.Horror
+https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/4RM_rc8fp9Rt_4cO92iBNg/6sl/ipljep8u/kfvohk/tt/master.m3u8
+#EXTINF:-1,Seven Snipers
+https://videos.files.wordpress.com/VV0Nlggs/seven-snipers-2026.mp4
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/Screenshot 2026-09-06 at 17.13.41.png",Filma Premium AL 3
+https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/iS5u_5nFjm1OIuzDmEIqqg/3ae/r8c1nwnj/gcpfr9/tt/master.mp4
+#EXTINF:-1,Filma Premium AL 4
 https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/0NkkhynfYcHs1ONJIwvqzg/lob/skucpjep/xq91z3/tt/master.m3u8
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/VENDOS_EMRIN_E_FOTOS_5_KETU.png",Filma Premium AL 5
-https://eclatandephemera.site/pl/H4sIAAAAAAAAAwXB226DIBgA4FdSPKws6cViPVQnlqqg3AH_FqdgSbNM69Pv.0JP6pOHVQBfcYRPOgww8mSIozf4lr6v3qmddmnHnV90RLv7jVzAtnaXkEPS5tvGLHb1TF9tV0aV__hTw3JI5oI6hZ8K0Wc3QNENJG5XfciVJKIon3LONtqXkR7KKwxmgiN9NWk2jjabR26YzMSvtM5QO3qsgL1fACnPxRT5V0Dm0edTohgL21QjutwLhlgPXEwjx5tIzUBnkUhOynr.2NlBhEauYZ5rVAFVN8Mns8TUhqyau0r4IrvR8_kfUHj8vAkBAAA-/master.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJteS1hdXRoIiwiaWF0IjoxNzg4NjkzODM2LCJuYmYiOjE3ODg2OTM4MzYsImV4cCI6MTc4ODcwODIzNiwiaXBfY2lkciI6IjE4NS4yMy4xMTAuMC8yNCJ9.b1vgPWFeymk2dipneNEXjV2oA2k2zHPyGlokLWjI_1o
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/medari1980-png/filma-premium/main/Screenshot 2026-09-06 at 17.14.51.png",Zip Wire 2026 (Aksion,Thriller)
+https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/Y4R6e9mAPlZNp2sJjMN6sw/lob/afyhws5s/e5jb3z/tt/master.m3u8?v=1766826492
+#EXTINF:-1,The Runner (2026)
+https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/0NkkhynfYcHs1ONJIwvqzg/lob/skucpjep/xq91z3/tt/master.m3u8
+#EXTINF:-1,FILM TURK  ÖNGÖRÜ
+https://videos.files.wordpress.com/og95tg11/ongoru-e28093-skena-e-fundit.mp4
