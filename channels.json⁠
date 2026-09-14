@@ -1,0 +1,6 @@
+{
+  "kanal1": {
+    "url1": "https://server-kryesor.com/live/stream1.m3u8",
+    "url2": "https://server-backup.com/live/stream1.m3u8"
+  }
+}
