@@ -1,54 +1,58 @@
-import fs from 'fs';
-import path from 'path';
-
 export default async function handler(req, res) {
-  const { id } = req.query;
+  // Merr vetem emrin ose ID e skedarit/kanalit qe kerkohet (p.sh. /api/stream?file=live/ hasan/ 123.ts)
+  const { path: streamPath } = req.query;
 
-  if (!id) {
-    return res.status(400).send("Mungon ID e kanalit");
+  if (!streamPath) {
+    return res.status(400).send("Mungon rruga e stream-it");
   }
 
-  try {
-    const filePath = path.join(process.cwd(), 'channels.json');
-    const fileData = fs.readFileSync(filePath, 'utf8');
-    const channels = JSON.parse(fileData);
+  // KONFIGURIMI I SERVERAVE TUAJ (Ndrysho vetem pjeset e user/pass ose url-ve ketu)
+  // Serveri 1 (http://newborne.pro:8080)
+  const server1Base = "  // Serveri 1 (http://newborne.pro:8080)
+  const server1Base = "http://newborne.pro:8080"; 
+  const user1 = "872949";
+  const pass1 = "cRnFPuG";
 
-    const channel = channels[id];
-    if (!channel) {
-      return res.status(404).send("Kanali nuk u gjet");
+  // Serveri 2 (http://newborne.pro:8080)
+  const server2Base = "http://newborne.pro:8080"; 
+  const user2 = "SltvadmminYellowStar";
+  const pass2 = "jkn8r28jkn821311";
+"; 
+  const user1 = "872949";
+  const pass1 = "cRnFPuG";
+
+  // Serveri 2 (Rezervë - i njejti server, user/pass i dyte)
+  const server2Base = "http://newborne.pro:8080"; 
+  const user2 = "SltvadmminYellowStar";
+  const pass2 = "jkn8r28jkn821311";
+
+  // Ndertojmë dy linqet automatikisht
+  const url1 = `${server1Base}/${user1}/${pass1}/${streamPath}`;
+  const url2 = `${server2Base}/${user2}/${pass2}/${streamPath}`;
+
+  const checkStream = async (url) => {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: { 'User-Agent': 'VLC/3.0.18 LibVLC/3.0.18' },
+        signal: controller.signal
+      });
+      
+      clearTimeout(timeoutId);
+      return response.ok;
+    } catch (err) {
+      return false;
     }
+  };
 
-    const { url1, url2 } = channel;
-
-    const checkStream = async (url) => {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3000);
-
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: { 'User-Agent': 'VLC/3.0.18 LibVLC/3.0.18' },
-          signal: controller.signal
-        });
-
-        clearTimeout(timeoutId);
-        return response.ok;
-      } catch (err) {
-        return false;
-      }
-    };
-
-    if (url1 && (await checkStream(url1))) {
-      return res.redirect(302, url1);
-    }
-
-    if (url2) {
-      return res.redirect(302, url2);
-    }
-
-    return res.status(504).send("Te dy burimet M3U8 jane jashte funksionit.");
-
-  } catch (error) {
-    return res.status(500).send("Gabim ne server: " + error.message);
+  // Provo te parin
+  if (await checkStream(url1)) {
+    return res.redirect(302, url1);
   }
+
+  // Nese deshton, kalo te i dyti
+  return res.redirect(302, url2);
 }
