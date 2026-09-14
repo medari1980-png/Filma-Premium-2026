@@ -1,34 +1,25 @@
 export default async function handler(req, res) {
-  // Merr vetem emrin ose ID e skedarit/kanalit qe kerkohet (p.sh. /api/stream?file=live/ hasan/ 123.ts)
   const { path: streamPath } = req.query;
 
   if (!streamPath) {
     return res.status(400).send("Mungon rruga e stream-it");
   }
 
-  // KONFIGURIMI I SERVERAVE TUAJ (Ndrysho vetem pjeset e user/pass ose url-ve ketu)
-  // Serveri 1 (http://newborne.pro:8080)
-  const server1Base = "  // Serveri 1 (http://newborne.pro:8080)
-  const server1Base = "http://newborne.pro:8080"; 
-  const user1 = "872949";
-  const pass1 = "cRnFPuG";
+  // Adresa bazë e serverit dhe pjesa e mesit e linkut tuaj
+  const serverBase = "http://client.newborntv.xyz:8080";
+  const middlePath = "SltvadmminYellowStar/jkn8r28jkn821311";
 
-  // Serveri 2 (http://newborne.pro:8080)
-  const server2Base = "http://newborne.pro:8080"; 
-  const user2 = "SltvadmminYellowStar";
-  const pass2 = "jkn8r28jkn821311";
-"; 
-  const user1 = "872949";
-  const pass1 = "cRnFPuG";
+  // Kredencialet e Serverit 1 (Kryesor) - Vendos user/pass të parë këtu
+  const user1 = "USER_I_PARE";
+  const pass1 = "PASS_I_PARE";
 
-  // Serveri 2 (Rezervë - i njejti server, user/pass i dyte)
-  const server2Base = "http://newborne.pro:8080"; 
-  const user2 = "SltvadmminYellowStar";
-  const pass2 = "jkn8r28jkn821311";
+  // Kredencialet e Serverit 2 (Rezervë) - Vendos user/pass të dytë këtu
+  const user2 = "USER_I_DYTE";
+  const pass2 = "PASS_I_DYTE";
 
-  // Ndertojmë dy linqet automatikisht
-  const url1 = `${server1Base}/${user1}/${pass1}/${streamPath}`;
-  const url2 = `${server2Base}/${user2}/${pass2}/${streamPath}`;
+  // Ndërtojmë linqet automatikisht duke përfshirë strukturën e saktë
+  const url1 = `${serverBase}/${middlePath}/${user1}/${pass1}/${streamPath}`;
+  const url2 = `${serverBase}/${middlePath}/${user2}/${pass2}/${streamPath}`;
 
   const checkStream = async (url) => {
     try {
@@ -48,11 +39,10 @@ export default async function handler(req, res) {
     }
   };
 
-  // Provo te parin
+  // Provo të parin, nëse s'bën kalo tek i dyti
   if (await checkStream(url1)) {
     return res.redirect(302, url1);
   }
 
-  // Nese deshton, kalo te i dyti
   return res.redirect(302, url2);
 }
