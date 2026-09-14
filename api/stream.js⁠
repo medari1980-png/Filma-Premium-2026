@@ -1,0 +1,54 @@
+import fs from 'fs';
+import path from 'path';
+
+export default async function handler(req, res) {
+  const { id } = req.query;
+
+  if (!id) {
+    return res.status(400).send("Mungon ID e kanalit");
+  }
+
+  try {
+    const filePath = path.join(process.cwd(), 'channels.json');
+    const fileData = fs.readFileSync(filePath, 'utf8');
+    const channels = JSON.parse(fileData);
+
+    const channel = channels[id];
+    if (!channel) {
+      return res.status(404).send("Kanali nuk u gjet");
+    }
+
+    const { url1, url2 } = channel;
+
+    const checkStream = async (url) => {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: { 'User-Agent': 'VLC/3.0.18 LibVLC/3.0.18' },
+          signal: controller.signal
+        });
+
+        clearTimeout(timeoutId);
+        return response.ok;
+      } catch (err) {
+        return false;
+      }
+    };
+
+    if (url1 && (await checkStream(url1))) {
+      return res.redirect(302, url1);
+    }
+
+    if (url2) {
+      return res.redirect(302, url2);
+    }
+
+    return res.status(504).send("Te dy burimet M3U8 jane jashte funksionit.");
+
+  } catch (error) {
+    return res.status(500).send("Gabim ne server: " + error.message);
+  }
+}
