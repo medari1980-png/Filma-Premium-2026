@@ -1,3 +1,74 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DART IPTV - Kanali 24/7</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Lojtari i kanalit vetëm për 3 videot -->
+    <video id="iptvChannel" controls autoplay playsinline></video>
+
+    <script>
+        // Vetëm këto 3 video përbëjnë kanalin
+        const playlist = [
+            "https://v.tom-dzherri.net/video/s/1.mp4",
+            "https://v.tom-dzherri.net/video/s/2.mp4",
+            "https://v.tom-dzherri.net/video/s/3.mp4"
+        ];
+
+        let currentIndex = 0;
+        const videoElement = document.getElementById("iptvChannel");
+
+        function playVideo(index) {
+            if (index >= playlist.length) {
+                currentIndex = 0; // Kur mbaron e treta, kthehet te e para pambarimisht
+            }
+            
+            videoElement.src = playlist[currentIndex];
+            videoElement.load();
+            videoElement.play().catch(error => {
+                console.log("Autoplay u bllokua:", error);
+                nextVideo();
+            });
+        }
+
+        function nextVideo() {
+            currentIndex++;
+            playVideo(currentIndex);
+        }
+
+        // Kur video mbaron, kalon te tjetra
+        videoElement.addEventListener("ended", nextVideo);
+        videoElement.addEventListener("error", nextVideo);
+
+        // Nise kanalin sapo të hapet faqja
+        window.onload = () => {
+            playVideo(currentIndex);
+        };
+    </script>
+
+</body>
+</html>
 #EXTM3U
 #EXTINF:-1⁠,group-title="► FILMA PREMIERE 2026",Dark Hollow (2026)Akson.Horror
 https://bufi.embedseek.com/hlsmod/p16-ad-site-sign-sg.tiktokcdn.com/4RM_rc8fp9Rt_4cO92iBNg/6sl/ipljep8u/kfvohk/tt/master.m3u8
